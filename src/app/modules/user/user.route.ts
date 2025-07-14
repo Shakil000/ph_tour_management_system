@@ -40,7 +40,8 @@ router.post("/register", async(req: Request, res: Response, next: NextFunction) 
     })
 
     req.body = await createUserZodSchema.parseAsync(req.body)
-    next();
+    console.log(req.body);
+    // next();
 },UserControllers.createUser);
 router.get("/all-user", UserControllers.getAllUsers);
 
