@@ -3,6 +3,7 @@ import { Server } from "http";
 import mongoose from "mongoose";
 import app from "./app";
 import { envVars } from "./app/config/env";
+import { seedSuperAdmin } from "./app/utils/seedSuperAdmin";
 
 let server: Server;
 
@@ -21,7 +22,11 @@ const startServer = async() => {
    }
 }
 
-startServer();
+// create IFI function for call function
+(async() => {
+    await startServer()
+    await seedSuperAdmin()
+})();
 
 //! server unhandled rejection handled here.................
 process.on("unhandledRejection", (err) => {
