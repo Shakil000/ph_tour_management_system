@@ -3,10 +3,8 @@ import httpStatus from "http-status-codes"
 import { UserServices } from "./user.service";
 import { catchAsync } from "../../utils/catchAsync";
 import { sendResponse } from "../../utils/sendResponse";
-import { verifyToken } from "../../utils/jwt";
-import { envVars } from "../../config/env";
 import { JwtPayload } from "jsonwebtoken";
-// import AppError from "../../errorHelpers/AppError";
+
 
 // For create user...................
 const createUser = catchAsync( async(req: Request, res: Response, next: NextFunction) => {
@@ -33,7 +31,7 @@ const updateUser = catchAsync( async(req: Request, res: Response, next: NextFunc
     const verifiedToken = req.user;
     const payload = req.body;
 
-    const user = await UserServices.updateUser(userId,payload,verifiedToken);
+    const user = await UserServices.updateUser(userId,payload,verifiedToken as JwtPayload);
 
     // res.status(httpStatus.CREATED).json({
     //     message: "User Created Successfully",
