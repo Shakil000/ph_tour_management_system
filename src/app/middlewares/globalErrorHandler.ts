@@ -3,7 +3,7 @@
 import { NextFunction, Request, Response } from "express";
 import { envVars } from "../config/env";
 import AppError from "../errorHelpers/AppError";
-import { handleDuplicateError } from "../helpers/andleDuplicateError";
+import { handleDuplicateError } from "../helpers/handleDuplicateError";
 import { handleCastError } from "../helpers/handleCastError";
 import { handleValidationError } from "../helpers/handleValidationError";
 import { handleZodError } from "../helpers/handleZodError";
