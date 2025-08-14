@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { TErrorSources, TGenericErrorResponse } from "../interfaces/error.types"
 
 export const handleZodError = (error: any): TGenericErrorResponse => {
@@ -12,7 +13,7 @@ export const handleZodError = (error: any): TGenericErrorResponse => {
         })
         return{
             statusCode: 400,
-            message: "Zod",
+            message: "Zod Error",
             errorSources
         }
     }
